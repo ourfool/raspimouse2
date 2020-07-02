@@ -266,18 +266,23 @@ CallbackReturn Raspimouse::on_cleanup(const rclcpp_lifecycle::State &)
 
 void Raspimouse::publish_odometry()
 {
-  if (use_pulse_counters_) {
-    calculate_odometry_from_pulse_counts(
-      odom_.pose.pose.position.x,
-      odom_.pose.pose.position.y,
-      odom_theta_
-      );
-  } else {
+//   if (use_pulse_counters_) {
+//     calculate_odometry_from_pulse_counts(
+//       odom_.pose.pose.position.x,
+//       odom_.pose.pose.position.y,
+//       odom_theta_
+//       );
+//   } else {
+//     estimate_odometry(
+//       odom_.pose.pose.position.x,
+//       odom_.pose.pose.position.y,
+//       odom_theta_
+//       );
     estimate_odometry(
       odom_.pose.pose.position.x,
       odom_.pose.pose.position.y,
       odom_theta_
-      );
+    );
   }
 
   tf2::Quaternion odom_q;
