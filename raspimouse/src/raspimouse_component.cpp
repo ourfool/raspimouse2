@@ -283,7 +283,7 @@ void Raspimouse::publish_odometry()
       odom_.pose.pose.position.y,
       odom_theta_
     );
-  }
+//   }
 
   tf2::Quaternion odom_q;
   odom_q.setRPY(0, 0, odom_theta_);
